@@ -1,5 +1,12 @@
 package Mochila;
 
+/**
+ *
+ * @author Mishell Angulo
+ * @author John Cuesta
+ * @author Darwin Guaman
+ * @author Cindy Ramirez
+ */
 public class Box {
 
     private int weight;
@@ -9,4 +16,21 @@ public class Box {
         weight = Pweight;
         value = Pvalue;
     }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
 }
