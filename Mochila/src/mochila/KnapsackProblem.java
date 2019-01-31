@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+Estrategia Programacion dinamica
+El problema consiste en que la mochila tiene una capacidad maxima para poder meter objetos en nuestro caso cajas, dichos objetos tienen peso y un valor o beneficio. 
+La mochila tiene un peso maximo que debe cumplir cuando se lo llene.
+El objetivo es seleccionar y tomar la mayor cantidad de objetos y que tenga mayor beneficios ademas que no sobrepase el peso maximo.
+la programacion dinamica nos proporciona una solucion optima comparado a la fuerza bruta ya que requiere mayor cantidad de recursos.
  */
 package Mochila;
 
@@ -16,42 +18,42 @@ import java.util.ArrayList;
  */
 public class KnapsackProblem {
 
-    static Matriz Algoritmo(Knapsack knapsack, ArrayList<Box> objectList) {
-        Matriz Optimos = new Matriz(objectList.size() + 1, knapsack.getCapacity() + 1);
+    static Matrix Algoritmo(Knapsack knapsack, ArrayList<Box> objectList) {
+        Matrix solutions = new Matrix(objectList.size() + 1, knapsack.getCapacity() + 1);
 
-        for (int i = 1; i <= pListaDeObjetos.size(); i++) {
-            int Peso = pListaDeObjetos.get(i - 1).getPeso();
-            int Valor = pListaDeObjetos.get(i - 1).getValor();
+        for (int i = 1; i <= objectList.size(); i++) {
+            int weight = objectList.get(i - 1).getWeight();
+            int value = objectList.get(i - 1).getWeight();
 
-            for (int j = 0; j < pMochila.getCapacidad(); j++) {
-                Optimos.getMatriz()[i][j] = Optimos.getMatriz()[i - 1][j];
+            for (int j = 0; j < knapsack.getCapacity(); j++) {
+                solutions.getMatrix()[i][j] = solutions.getMatrix()[i - 1][j];
             }
 
-            for (int j = Peso; j <= pMochila.getCapacidad(); j++) {
-                Optimos.getMatriz()[i][j] = Math.max(Optimos.getMatriz()[i - 1][j], Optimos.getMatriz()[i - 1][j - Peso] + Valor);
+            for (int j = weight; j <= knapsack.getCapacity(); j++) {
+                solutions.getMatrix()[i][j] = Math.max(solutions.getMatrix()[i - 1][j], solutions.getMatrix()[i - 1][j - weight] + value);
             }
         }
-        return Optimos;
+        return solutions;
     }
 
     public static void main(String[] args) {
-        Knapsack knapsack = new Knapsack(4);
+        Knapsack knapsack = new Knapsack(19);
         //new Boxes(Value,Weight)
         Box box1 = new Box(8, 1);
         Box box2 = new Box(7, 2);
         Box box3 = new Box(11, 3);
 
-        ArrayList<Box> ListaDeObjetos = new ArrayList();
+        ArrayList<Box> objectList = new ArrayList();
 
-        ListaDeObjetos.add(box1);
-        ListaDeObjetos.add(box2);
-        ListaDeObjetos.add(box3);
+        objectList.add(box1);
+        objectList.add(box2);
+        objectList.add(box3);
 
-        Matriz MatrizOptimos = Algoritmo(knapsack, ListaDeObjetos);
+        Matrix solutions = Algoritmo(knapsack, objectList);
         System.out.println("Matrix that contains the optimum solutions:");
-        MatrizOptimos.Mostrar();
+        solutions.ShowMatrix();
 
         System.out.println("In accordance with the weight of the knapsack, the higher value that you can get with the boxes is: "
-                + MatrizOptimos.getMatriz()[ListaDeObjetos.size()][knapsack.getCapacity()]);
+                + solutions.getMatrix()[objectList.size()][knapsack.getCapacity()]);
     }
 }
