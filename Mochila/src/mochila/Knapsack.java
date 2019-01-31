@@ -2,6 +2,14 @@ package Mochila;
 
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Mishell Angulo
+ * @author John Cuesta
+ * @author Darwin Guaman
+ * @author Cindy Ramirez
+ */
+
 public class Knapsack {
 
     private ArrayList<Box> objectList;
