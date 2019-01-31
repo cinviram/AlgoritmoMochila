@@ -48,10 +48,13 @@ public class KnapsackProblem {
         ListaDeObjetos.add(box3);
 
         Matriz MatrizOptimos = Algoritmo(knapsack, ListaDeObjetos);
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
         System.out.println("Matrix that contains the optimum solutions:");
         MatrizOptimos.Mostrar();
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
 
         System.out.println("In accordance with the weight of the knapsack, the higher value that you can get with the boxes is: "
                 + MatrizOptimos.getMatriz()[ListaDeObjetos.size()][knapsack.getCapacity()]);
+        System.out.println("-----------------------------------------------------------------------------------------------------------");
     }
 }
