@@ -1,5 +1,13 @@
 package Mochila;
 
+/**
+*
+* @author Mishell Angulo
+* @author John Cuesta
+* @author Darwin Guaman
+* @author Cindy Ramirez
+*/
+
 public class Matrix {
     
     private int Matrix[][];
