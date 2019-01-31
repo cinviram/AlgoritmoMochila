@@ -55,5 +55,6 @@ public class KnapsackProblem {
 
         System.out.println("In accordance with the weight of the knapsack, the higher value that you can get with the boxes is: "
                 + solutions.getMatrix()[objectList.size()][knapsack.getCapacity()]);
+
     }
 }
